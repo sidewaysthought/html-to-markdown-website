@@ -4,10 +4,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 function convertToMarkdown() {
-    var turndownService = new TurndownService();
-    var html = document.getElementById('htmlInput').value;
-    var markdown = turndownService.turndown(html);
-    document.getElementById('markdownOutput').value = markdown;
+
+    // If the user has entered a URL, download the HTML from that URL
+    // Otherwise, use the HTML from the text area
+    var inputTxt = document.getElementById('htmlInput').value;
+    var html = '';
+    if (inputTxt.startsWith('http')) {
+        try {
+            var request = new XMLHttpRequest();
+            request.open('GET', inputTxt, false);
+            request.send(null);
+            html = request.responseText;
+        } catch (error) {
+            alert('Error: ' + error);
+        }
+    } else {
+        html = inputTxt;
+    }
+
+    if (html != '') {
+        var turndownService = new TurndownService();
+        var markdown = turndownService.turndown(html);
+        document.getElementById('markdownOutput').value = markdown;    
+    }
 }
 
 function copyToClipboard() {
