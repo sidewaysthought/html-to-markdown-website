@@ -1,16 +1,18 @@
-
+/**
+ * Attach event listeners to the buttons
+ */
 document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('convertToMarkdown').addEventListener('click', convertToMarkdown);
 });
 
+/**
+ * Converts HTML to Markdown
+ */
 function convertToMarkdown() {
 
-    // If the user has entered a URL, download the HTML from that URL
-    // Otherwise, use the HTML from the text area
     var inputTxt = document.getElementById('htmlInput').value;
     var html = '';
 
-    // Check if inputTxt is blank. If so, alert the user and return
     if (inputTxt == '') {
         alert('Please enter some HTML to convert');
         return;
@@ -37,12 +39,18 @@ function convertToMarkdown() {
     }
 }
 
+/**
+ * Copy the markdown to the clipboard
+ */
 function copyToClipboard() {
     var copyText = document.getElementById("markdownOutput");
     copyText.select();
     document.execCommand("copy");
 }
 
+/**
+ * Download the markdown as a file
+ */
 function downloadML() {
     var text = document.getElementById("markdownOutput").value;
     var filename = "output.ml";
@@ -57,6 +65,10 @@ function downloadML() {
     document.body.removeChild(a);
 }
 
+/**
+ * Checks if the input is a valid URL
+ * @param {string} url 
+ */
 function isValidUrl(url) {
     var regex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
     return regex.test(url);
