@@ -28,21 +28,21 @@
         </ul>
         <p>For more information on Markdown, see <a href="https://www.markdownguide.org/">The Markdown Guide</a>.</p>
 
-        <form>
+        <form class="mb-6">
             <h3>Step 1: Provide HTML</h3>
             <label for="htmlInput" class="visually-hidden">Paste HTML</label>
             <textarea id="htmlInput"
                 class="form-control mb-3" rows="10" placeholder="Enter HTML here"></textarea>
 
-            <h3>Step 2: Convert to Markdown</h3>
+            <h3 class="mt-4">Step 2: Convert to Markdown</h3>
             <button type="button" id="convertToMarkdown" class="btn btn-primary">Convert to Markdown</button>
 
-            <h3>Step 3: Enjoy!</h3>
+            <h3 class="mt-4">Step 3: Enjoy!</h3>
             <label for="markdownOutput" class="visually-hidden">View Output</label>
             <textarea id="markdownOutput" 
                 class="form-control mt-3" rows="10" placeholder="Markdown will appear here" readonly></textarea>
-            <button onclick="copyToClipboard()" class="btn"><i class="fa-solid fa-copy"></i> Copy</button>
-            <button onclick="downloadML()" class="btn"><i class="fa-solid fa-file-download"></i> Download as .ml</button>
+            <button onclick="copyToClipboard()" class="btn btn-light"><i class="fa-solid fa-copy"></i> Copy</button>
+            <button onclick="downloadML()" class="btn btn-light"><i class="fa-solid fa-file-download"></i> Download as .ml</button>
         </form>
     </div>
 
