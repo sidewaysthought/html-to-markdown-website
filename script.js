@@ -4,12 +4,15 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('convertToMarkdown').addEventListener('click', convertToMarkdown);
     document.getElementById('filterBySelector').addEventListener('change', toggleSelectorInput);
+    document.getElementById('copyToClipboardBtn').addEventListener('change', copyToClipboard);
+    document.getElementById('downloadFileBtn').addEventListener('change', downloadMd);
 });
 
 /**
  * Toggles the selector input
  */
-function toggleSelectorInput() {
+function toggleSelectorInput(e) {
+    e.preventDefault();
     var checkbox = document.getElementById('filterBySelector');
     var selectorInput = document.getElementById('selectorInput');
     selectorInput.style.display = checkbox.checked ? 'block' : 'none';
@@ -18,7 +21,8 @@ function toggleSelectorInput() {
 /**
  * Converts HTML to Markdown
  */
-function convertToMarkdown() {
+function convertToMarkdown(e) {
+    e.preventDefault();
     var inputTxt = document.getElementById('htmlInput').value;
     var useSelector = document.getElementById('filterBySelector').checked;
     var selector = useSelector ? document.getElementById('htmlSelector').value : null;
@@ -88,7 +92,8 @@ function convertHtmlToMarkdown(html) {
 /**
  * Copy the markdown to the clipboard
  */
-function copyToClipboard() {
+function copyToClipboard(e) {
+    e.preventDefault();
     var copyText = document.getElementById("markdownOutput");
     copyText.select();
     document.execCommand("copy");
@@ -97,7 +102,8 @@ function copyToClipboard() {
 /**
  * Download the markdown as a file
  */
-function downloadML() {
+function downloadMd(e) {
+    e.preventDefault();
     var text = document.getElementById("markdownOutput").value;
     var filename = "output.md";
 
