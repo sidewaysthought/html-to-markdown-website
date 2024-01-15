@@ -83,6 +83,9 @@ function convertHtmlToMarkdown(html) {
     if (html !== '') {
         var turndownService = new TurndownService();
         var markdown = turndownService.turndown(html);
+        
+        // Collapse multiple empty lines down to one
+        markdown = markdown.replace(/\n{2,}/g, '\n');
         document.getElementById('markdownOutput').value = markdown;
     } else {
         alert('No content found for conversion.');
