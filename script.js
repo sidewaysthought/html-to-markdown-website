@@ -9,7 +9,14 @@ function convertToMarkdown() {
     // Otherwise, use the HTML from the text area
     var inputTxt = document.getElementById('htmlInput').value;
     var html = '';
-    if (inputTxt.startsWith('http')) {
+
+    // Check if inputTxt is blank. If so, alert the user and return
+    if (inputTxt == '') {
+        alert('Please enter some HTML to convert');
+        return;
+    }
+
+    if (isValidUrl(inputTxt)) {
         try {
             var request = new XMLHttpRequest();
             request.open('GET', inputTxt, false);
@@ -17,6 +24,7 @@ function convertToMarkdown() {
             html = request.responseText;
         } catch (error) {
             alert('Error: ' + error);
+            return;
         }
     } else {
         html = inputTxt;
@@ -47,4 +55,9 @@ function downloadML() {
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+}
+
+function isValidUrl(url) {
+    var regex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+    return regex.test(url);
 }

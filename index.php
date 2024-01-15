@@ -13,8 +13,6 @@
 
     <div class="container mt-4">
         <h2>About This Site</h2>
-        <p>Markdown is a clean, easily readable text format that doesn't ac</p>
-        <h2>About Markdown</h2>
         <p>The HTML to Markdown Converter is a user-friendly online tool that converts web page HTML into markdown
             format. It simplifies the process of sharing web content on platforms like ChatGPT or GitHub while
             preserving crucial information. It is also more usable for non-technical people.
@@ -34,7 +32,7 @@
             <p>
                 <label for="htmlInput" class="visually-hidden">Paste HTML or a URL</label>
                 <textarea id="htmlInput"
-                    class="form-control mb-3" rows="10" placeholder="Enter HTML or a URL here"></textarea>
+                    class="form-control mb-3" rows="10" placeholder="Enter HTML or a URL here" required></textarea>
             </p>
 
             <h3 class="mt-4">Step 2: Convert to Markdown</h3>
@@ -43,7 +41,7 @@
             <h3 class="mt-4">Step 3: Enjoy!</h3>
             <label for="markdownOutput" class="visually-hidden">View Output</label>
             <textarea id="markdownOutput" 
-                class="form-control mt-3" rows="10" placeholder="Markdown will appear here" readonly></textarea>
+                class="form-control mt-3 mb-2" rows="10" placeholder="Markdown will appear here" readonly></textarea>
             <button onclick="copyToClipboard()" class="btn btn-outline-primary"><i class="fa-solid fa-copy"></i> Copy</button>
             <button onclick="downloadML()" class="btn btn-outline-primary"><i class="fa-solid fa-file-download"></i> Download as .ml</button>
         </form>
