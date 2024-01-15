@@ -81,7 +81,11 @@ function convertToMarkdown(e) {
  */
 function convertHtmlToMarkdown(html) {
     if (html !== '') {
-        var turndownService = new TurndownService();
+        var turndownService = new TurndownService({
+            'headingStyle': 'atx',
+            'codeBlockStyle': 'fenced',
+            'strongDelimiter': '__'
+        });
         var markdown = turndownService.turndown(html);
         
         // Collapse multiple empty lines down to one
