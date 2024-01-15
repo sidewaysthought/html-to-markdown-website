@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('filterBySelector').addEventListener('change', toggleSelectorInput);
 });
 
+/**
+ * Toggles the selector input
+ */
 function toggleSelectorInput() {
     var checkbox = document.getElementById('filterBySelector');
     var selectorInput = document.getElementById('selectorInput');
@@ -25,7 +28,11 @@ function convertToMarkdown() {
         return;
     }
 
-    // Function to validate and apply the selector
+    /**
+     * Process the HTML with the selector
+     * @param {*} html 
+     * @returns 
+     */
     function processHtmlWithSelector(html) {
         if (useSelector && selector) {
             try {
@@ -64,6 +71,10 @@ function convertToMarkdown() {
     }
 }
 
+/**
+ * Converts HTML to Markdown
+ * @param {*} html 
+ */
 function convertHtmlToMarkdown(html) {
     if (html !== '') {
         var turndownService = new TurndownService();
