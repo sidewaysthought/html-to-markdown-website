@@ -32,8 +32,19 @@
             <p>
                 <label for="htmlInput" class="visually-hidden">Paste HTML or a URL</label>
                 <textarea id="htmlInput"
-                    class="form-control mb-3" rows="10" placeholder="Enter HTML or a URL here" required></textarea>
+                    class="form-control mb-3" rows="10" placeholder="Enter HTML or a URL here" required></textarea><br>
             </p>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="filterBySelector">
+                <label class="form-check-label" for="filterBySelector">
+                    Filter HTML by Selector
+                </label><br>
+            </div>
+            <div id="selectorInput" style="display: none;">
+                <label for="htmlSelector" class="form-label">HTML Selector</label>
+                <input type="text" class="form-control" id="htmlSelector" placeholder="Enter a CSS selector">
+            </div>
+
 
             <h3 class="mt-4">Step 2: Convert to Markdown</h3>
             <button type="button" id="convertToMarkdown" class="btn btn-primary">Convert to Markdown</button>

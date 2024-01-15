@@ -3,39 +3,74 @@
  */
 document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('convertToMarkdown').addEventListener('click', convertToMarkdown);
+    document.getElementById('filterBySelector').addEventListener('change', toggleSelectorInput);
 });
+
+function toggleSelectorInput() {
+    var checkbox = document.getElementById('filterBySelector');
+    var selectorInput = document.getElementById('selectorInput');
+    selectorInput.style.display = checkbox.checked ? 'block' : 'none';
+}
 
 /**
  * Converts HTML to Markdown
  */
 function convertToMarkdown() {
-
     var inputTxt = document.getElementById('htmlInput').value;
-    var html = '';
+    var useSelector = document.getElementById('filterBySelector').checked;
+    var selector = useSelector ? document.getElementById('htmlSelector').value : null;
 
-    if (inputTxt == '') {
+    if (inputTxt === '') {
         alert('Please enter some HTML to convert');
         return;
     }
 
-    if (isValidUrl(inputTxt)) {
-        try {
-            var request = new XMLHttpRequest();
-            request.open('GET', inputTxt, false);
-            request.send(null);
-            html = request.responseText;
-        } catch (error) {
-            alert('Error: ' + error);
-            return;
+    // Function to validate and apply the selector
+    function processHtmlWithSelector(html) {
+        if (useSelector && selector) {
+            try {
+                // Test if the selector is valid
+                document.createDocumentFragment().querySelector(selector);
+            } catch (error) {
+                alert('Invalid CSS selector.');
+                return null;
+            }
+
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(html, 'text/html');
+            var selectedContent = doc.querySelector(selector);
+            return selectedContent ? selectedContent.outerHTML : '';
         }
-    } else {
-        html = inputTxt;
+        return html;
     }
 
-    if (html != '') {
+    if (isValidUrl(inputTxt)) {
+        fetch(inputTxt)
+            .then(response => response.text())
+            .then(data => {
+                var processedHtml = processHtmlWithSelector(data);
+                if (processedHtml !== null) {
+                    convertHtmlToMarkdown(processedHtml);
+                }
+            })
+            .catch(error => {
+                alert('Error fetching the URL: ' + error);
+            });
+    } else {
+        var processedHtml = processHtmlWithSelector(inputTxt);
+        if (processedHtml !== null) {
+            convertHtmlToMarkdown(processedHtml);
+        }
+    }
+}
+
+function convertHtmlToMarkdown(html) {
+    if (html !== '') {
         var turndownService = new TurndownService();
         var markdown = turndownService.turndown(html);
-        document.getElementById('markdownOutput').value = markdown;    
+        document.getElementById('markdownOutput').value = markdown;
+    } else {
+        alert('No content found for conversion.');
     }
 }
 
