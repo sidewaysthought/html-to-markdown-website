@@ -11,7 +11,7 @@
 <body>
     <?php include('includes/navbar.php'); ?>
 
-    <div class="container mt-4">
+    <div class="container mt-4 mb-5">
 
         <h2>About This Site</h2>
 
@@ -26,7 +26,7 @@
         <p>This site is built with PHP and Bootstrap, a framework developed by (the company formally known as) Twitter.
             which helps ensure a responsive and mobile-first experience. The core functionality, converting HTML to
             Markdown, is made possible by <a href="https://github.com/mixmark-io/turndown">TurnDown</a>, a versatile
-            JavaScript library which is copyright 2017 by Dom CHristie, and is released under the MIT license.</p>
+            JavaScript library which is &copy; 2017 by Dom Christie, and is released under the MIT license.</p>
 
         <h3>Terms of Use</h3>
             The tool is completely free to use. Your data is neither stored nor used beyond the conversion process. <a
