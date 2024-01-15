@@ -2,9 +2,41 @@
 <html>
 
 <head>
-    <title>Conver HTML to Markdown</title>
+    <title>Convert HTML to Markdown - Online Tool</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="HTML to Markdown Converter" />
+    <meta property="og:description" content="Convert HTML content into Markdown format easily." />
+    <meta property="og:image" content="https://htmltomarkdown.top/images/screenshot.png" />
+    <meta property="og:url" content="https://htmltomarkdown.top" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HTML to Markdown Converter">
+    <meta name="twitter:description" content="Convert HTML content into Markdown format easily.">
+    <meta name="twitter:image" content="https://htmltomarkdown.top/images/screenshot.png">
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "HTML to Markdown Converter",
+        "description": "A user-friendly online tool that efficiently converts web page HTML into Markdown format, ideal for platforms like ChatGPT or GitHub.",
+        "url": "https://htmltomarkdown.top/",
+        "applicationCategory": "WebApplication",
+        "operatingSystem": "All",
+        "softwareVersion": "1.0",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "User-friendly HTML to Markdown conversion",
+            "Filter HTML content by CSS selector",
+            "Copy and download conversion results"
+        ],
+        "screenshot": "https://htmltomarkdown.top/images/screenshot.png",
+    }
+    </script>
     <?php include('includes/head.php'); ?>
 </head>
 
@@ -29,7 +61,7 @@
                         <li>Markdown is easier to make accessible</li>
                     </ul>
                     <p>For more information on Markdown, see <a href="https://www.markdownguide.org/">The
-                        Markdown Guide</a>.</p>
+                            Markdown Guide</a>.</p>
                 </div>
 
                 <!-- Logo Column -->
@@ -86,4 +118,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>

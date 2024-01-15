@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Terms of Service | Conver HTML to Markdown</title>
+    <title>Terms of Service | CoConvert HTML to Markdown - Online Tool</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php include('includes/head.php'); ?>
