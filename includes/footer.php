@@ -5,6 +5,6 @@
                     All rights reserved.<br>
                 <a href="terms.php" class="text-white">Terms of Use</a> | <a href="privacy.php" class="text-white">Privacy Policy</a>
             </p>
-            <p>✨ The content of this website was created with the assistance of generative AI</p>
+            <p>✨The content of this website was created with the assistance of generative AI</p>
         </div>
     </footer>
