@@ -18,6 +18,7 @@
         <p>Welcome to the "HTML to Markdown Converter", a user-friendly online tool designed to simplify the process of
             converting HTML content into Markdown. Ideal for platforms like ChatGPT or GitHub, our tool is perfect for
             both tech-savvy individuals and those less familiar with HTML.</p>
+            
         <h3>Features</h3>
         <p>The converter is intuitive and straightforward, offering features like CSS selector-based HTML filtering, and
             options to copy or download the Markdown output.</p>
