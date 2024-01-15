@@ -41,7 +41,8 @@
             <label for="markdownOutput" class="visually-hidden">View Output</label>
             <textarea id="markdownOutput" 
                 class="form-control mt-3" rows="10" placeholder="Markdown will appear here" readonly></textarea>
-            <button onclick="copyToClipboard()" class="btn"><i class="fa-solid fa-copy"></i>Copy</button>
+            <button onclick="copyToClipboard()" class="btn"><i class="fa-solid fa-copy"></i> Copy</button>
+            <button onclick="downloadML()" class="btn"><i class="fa-solid fa-file-download"></i> Download as .ml</button>
         </form>
     </div>
 
