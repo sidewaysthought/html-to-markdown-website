@@ -94,7 +94,6 @@
                 <input type="text" class="form-control" id="htmlSelector" placeholder="Enter a CSS selector">
             </div>
 
-
             <h3 class="mt-4">Step 2: Convert to Markdown</h3>
             <button type="button" id="convertToMarkdown" class="btn btn-primary">Convert to Markdown</button>
 

@@ -105,7 +105,9 @@ function copyToClipboard(e) {
 function downloadMd(e) {
     e.preventDefault();
     var text = document.getElementById("markdownOutput").value;
-    var filename = "output.md";
+    var currentDate = new Date();
+    var formattedDate = currentDate.toISOString().replace(/[-:]/g, "").slice(0, 14);
+    var filename = "output_" + formattedDate + ".md";
 
     var blob = new Blob([text], { type: "text/plain" });
 
