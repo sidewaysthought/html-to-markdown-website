@@ -99,7 +99,7 @@ function copyToClipboard() {
  */
 function downloadML() {
     var text = document.getElementById("markdownOutput").value;
-    var filename = "output.ml";
+    var filename = "output.md";
 
     var blob = new Blob([text], { type: "text/plain" });
 

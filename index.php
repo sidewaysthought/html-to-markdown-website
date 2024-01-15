@@ -105,7 +105,7 @@
             <button onclick="copyToClipboard()" class="btn btn-outline-primary"><i class="fa-solid fa-copy"></i>
                 Copy</button>
             <button onclick="downloadML()" class="btn btn-outline-primary"><i class="fa-solid fa-file-download"></i>
-                Download as .ml</button>
+                Download as .md</button>
             <button type="reset" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Start Over</button>
         </form>
     </div>
