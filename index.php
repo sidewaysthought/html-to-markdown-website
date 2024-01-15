@@ -14,9 +14,9 @@
     <div class="container mt-4">
         <div class="container mt-4">
             <div class="row">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-body">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col-md-8">
                             <h2>About This Site</h2>
                             <p>The HTML to Markdown Converter is a user-friendly online tool that converts web page HTML
                                 into
