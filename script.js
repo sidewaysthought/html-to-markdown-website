@@ -9,3 +9,9 @@ function convertToMarkdown() {
     var markdown = turndownService.turndown(html);
     document.getElementById('markdownOutput').value = markdown;
 }
+
+function copyToClipboard() {
+    var copyText = document.getElementById("markdownOutput");
+    copyText.select();
+    document.execCommand("copy");
+  }
