@@ -2,7 +2,7 @@
         <div class="container">
             <p>
                 &copy; 2024 <a href="https://www.sidewaysthought.net" class="text-white">Sideways Thought LLC</a>.
-                    All rights reserved.<br>
+                    All rights reserved. See the About page for tools and frameworks used in this project.<br>
                 <a href="about.php" class="text-white">About</a> | <a href="terms.php" class="text-white">Terms of Use</a> | <a href="privacy.php" class="text-white">Privacy Policy | <a href="mailto:info@sidewaysthought.net" class="text-white">Contact</a>
             </p>
             <p>✨The content of this website was created with the assistance of generative AI</p>
