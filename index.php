@@ -10,7 +10,6 @@
 
 <body>
     <?php include('includes/navbar.php'); ?>
-
     <div class="container mt-4">
         <div class="container mt-4">
             <div class="row">
@@ -18,10 +17,8 @@
                 <div class="col-md-8">
                     <h2>About This Site</h2>
                     <p>The HTML to Markdown Converter is a user-friendly online tool that converts web page HTML
-                        into
-                        markdown format. It simplifies the process of sharing web content on platforms like
-                        ChatGPT or
-                        GitHub while preserving crucial information. It is also more usable for non-technical
+                        into markdown format. It simplifies the process of sharing web content on platforms like
+                        ChatGPT or GitHub while preserving crucial information. It is also more usable for non-technical
                         people.
                     </p>
                     <ul>
@@ -32,18 +29,15 @@
                         <li>Markdown is easier to make accessible</li>
                     </ul>
                     <p>For more information on Markdown, see <a href="https://www.markdownguide.org/">The
-                            Markdown
-                            Guide</a>.</p>
+                        Markdown Guide</a>.</p>
                 </div>
 
                 <!-- Logo Column -->
                 <div class="col-md-4">
                     <img src="images/logo.png" alt="HTML to Markdown Converter Logo" class="img-fluid">
                 </div>
-
             </div>
         </div>
-
 
         <form class="mb-5">
             <h3>Step 1: Provide HTML</h3>
@@ -92,5 +86,4 @@
     <script src="script.js"></script>
 
 </body>
-
 </html>
