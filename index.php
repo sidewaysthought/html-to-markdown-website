@@ -44,7 +44,7 @@
             <p>Copy and paste the HTML you wish to convert, or enter the URL of a webpage.</p>
             <div class="alert alert-warning" role="alert">
                 <i class="fa-solid fa-exclamation-triangle"></i> <strong>Important:</strong> Entering the URL may not
-                work depending website security settings. If you get an error, try pasting the HTML instead.
+                work depending on the website's security settings. If you get an error, try pasting the HTML instead.
             </div>
             <p>
                 <label for="htmlInput" class="visually-hidden">Paste HTML or a URL</label>
