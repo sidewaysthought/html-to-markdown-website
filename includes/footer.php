@@ -1,4 +1,4 @@
-    <footer class="footer mt-auto py-3 bg-dark text-white">
+    <footer class="footer mt-auto py-3 bg-dark text-white mt-4">
         <div class="container">
             <p>
                 &copy; 2024 <a href="https://www.sidewaysthought.net" class="text-white">Sideways Thought LLC</a>.
