@@ -29,13 +29,13 @@
             JavaScript library which is &copy; 2017 by Dom Christie, and is released under the MIT license.</p>
 
         <h3>Terms of Use</h3>
-            The tool is completely free to use. Your data is neither stored nor used beyond the conversion process. <a
+        <p>The tool is completely free to use. Your data is neither stored nor used beyond the conversion process. <a
             href="terms.php">Read the full Terms of Use here</a>. <a href="privacy.php">Read the full Privacy
-            Policy</a>.
+            Policy</a>.</p>
 
         <h3>Contact Us</h3>
-            For feedback, support, or inquiries, email <a
-            href="mailto:info@sidewaysthought.net">info@sidewaysthought.net</a>.
+        <p>For feedback, support, or inquiries, email <a
+            href="mailto:info@sidewaysthought.net">info@sidewaysthought.net</a>.</p>
     </div>
 
     <?php include('includes/footer.php'); ?>
