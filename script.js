@@ -28,52 +28,69 @@ function convertToMarkdown(e) {
     var selector = useSelector ? document.getElementById('htmlSelector').value : null;
 
     if (inputTxt === '') {
-        alert('Please enter some HTML to convert');
+        alert('Please enter some HTML or URL(s) to convert');
         return;
     }
 
-    /**
-     * Process the HTML with the selector
-     * @param {*} html 
-     * @returns 
-     */
-    function processHtmlWithSelector(html) {
-        if (useSelector && selector) {
-            try {
-                // Test if the selector is valid
-                document.createDocumentFragment().querySelector(selector);
-            } catch (error) {
-                alert('Invalid CSS selector.');
-                return null;
+    // Split input text by new lines or spaces to handle multiple URLs
+    var inputs = inputTxt.split(/[\n\s]+/);
+
+    // Process each input (URL or HTML)
+    inputs.forEach(input => {
+        if (isValidUrl(input)) {
+            fetchAndConvertUrl(input, selector);
+        } else {
+            var processedHtml = processHtmlWithSelector(input, selector);
+            if (processedHtml !== null) {
+                convertHtmlToMarkdown(processedHtml);
             }
-
-            var parser = new DOMParser();
-            var doc = parser.parseFromString(html, 'text/html');
-            var selectedContent = doc.querySelector(selector);
-            return selectedContent ? selectedContent.outerHTML : '';
         }
-        return html;
-    }
-
-    if (isValidUrl(inputTxt)) {
-        fetch(inputTxt)
-            .then(response => response.text())
-            .then(data => {
-                var processedHtml = processHtmlWithSelector(data);
-                if (processedHtml !== null) {
-                    convertHtmlToMarkdown(processedHtml);
-                }
-            })
-            .catch(error => {
-                alert('Error fetching the URL: ' + error);
-            });
-    } else {
-        var processedHtml = processHtmlWithSelector(inputTxt);
-        if (processedHtml !== null) {
-            convertHtmlToMarkdown(processedHtml);
-        }
-    }
+    });
 }
+
+/**
+ * Fetches and converts a URL to Markdown
+ * @param {string} url 
+ * @param {string} selector 
+ */
+function fetchAndConvertUrl(url, selector) {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            var processedHtml = processHtmlWithSelector(data, selector);
+            if (processedHtml !== null) {
+                convertHtmlToMarkdown(processedHtml);
+            }
+        })
+        .catch(error => {
+            alert('Error fetching the URL: ' + error);
+        });
+}
+
+/**
+ * Process the HTML with the selector
+ * @param {*} html 
+ * @param {*} selector 
+ * @returns 
+ */
+function processHtmlWithSelector(html, selector) {
+    if (selector) {
+        try {
+            // Test if the selector is valid
+            document.createDocumentFragment().querySelector(selector);
+        } catch (error) {
+            alert('Invalid CSS selector.');
+            return null;
+        }
+
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(html, 'text/html');
+        var selectedContent = doc.querySelector(selector);
+        return selectedContent ? selectedContent.outerHTML : '';
+    }
+    return html;
+}
+
 
 /**
  * Converts HTML to Markdown

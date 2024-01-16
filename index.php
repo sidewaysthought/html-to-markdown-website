@@ -78,16 +78,17 @@
             </div>
         </div>
 
-        <form class="mb-5">
+        <form>
             <h3>Step 1: Provide HTML</h3>
-            <p>Copy and paste the HTML you wish to convert, or enter the URL of a webpage.</p>
+            <p>Copy and paste the HTML you wish to convert. Or enter one or more URLs of a webpage separated by 
+                spaces or new lines.</p>
             <div class="alert alert-warning" role="alert">
                 <i class="fa-solid fa-exclamation-triangle"></i> <strong>Important:</strong> Entering the URL may not
                 work depending on the website's security settings. If you get an error, try pasting the HTML instead.
             </div>
             <p>
-                <label for="htmlInput" class="visually-hidden">Paste HTML or a URL</label>
-                <textarea id="htmlInput" class="form-control mb-3" rows="10" placeholder="Enter HTML or a URL here"
+                <label for="htmlInput" class="visually-hidden">Paste HTML or URLs</label>
+                <textarea id="htmlInput" class="form-control mb-3" rows="10" placeholder="Enter HTML or URLs on new lines here"
                     required></textarea><br>
             </p>
             <div class="form-check">
@@ -114,6 +115,7 @@
                 Download as .md</button>
             <button type="reset" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Start Over</button>
         </form>
+        <?php include('includes/changelog.php'); ?>
     </div>
 
     <?php include('includes/footer.php'); ?>
