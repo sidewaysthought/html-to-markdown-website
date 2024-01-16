@@ -78,7 +78,7 @@ function fetchAndConvertUrl(url, selector, useSelector) {
             return processedHtml !== null ? convertHtmlToMarkdown(processedHtml) : '';
         })
         .catch(error => {
-            console.error('Error fetching the URL:', error);
+            alert('Error fetching the URL:', error);
             return ''; // Return an empty string in case of error
         });
 }
@@ -126,7 +126,7 @@ function convertHtmlToMarkdown(html) {
         var markdown = turndownService.turndown(html);
 
         // Collapse multiple empty lines down to one
-        markdown = markdown.replace(/\n{2,}/g, '\n');
+        markdown = markdown.replace(/\n{3,}/g, '\n\n');
         return markdown;
     } else {
         alert('No content found for conversion.');
