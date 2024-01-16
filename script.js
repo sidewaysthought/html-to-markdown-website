@@ -4,7 +4,7 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('convertToMarkdown').addEventListener('click', convertToMarkdown);
     document.getElementById('filterBySelector').addEventListener('change', toggleSelectorInput);
-    document.getElementById('copyToClipboardBtn').addEventListener('change', copyToClipboard);
+    document.getElementById('copyToClipboardBtn').addEventListener('click', copyToClipboard);
     document.getElementById('downloadFileBtn').addEventListener('change', downloadMd);
 });
 
