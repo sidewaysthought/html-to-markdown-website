@@ -81,6 +81,9 @@ function convertToMarkdown(e) {
  */
 function convertHtmlToMarkdown(html) {
     if (html !== '') {
+        html = html.replace(/<head>[\s\S]*<\/head>/gi, '');
+        html = html.replace(/<script[\s\S]*<\/script>/gi, '');
+        html = html.replace(/<style[\s\S]*<\/style>/gi, '');
         var turndownService = new TurndownService({
             'headingStyle': 'atx',
             'codeBlockStyle': 'fenced',
