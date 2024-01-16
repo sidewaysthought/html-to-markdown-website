@@ -67,6 +67,13 @@
                 <!-- Logo Column -->
                 <div class="col-md-4">
                     <img src="images/logo.png" alt="HTML to Markdown Converter Logo" class="img-fluid">
+                    <p class="text-center">
+                        <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+                        <script type='text/javascript'>
+                            kofiwidget2.init('Support Me on Ko-fi', '#198754', 'G2G2TDET6');
+                            kofiwidget2.draw();
+                        </script>
+                    </p>
                 </div>
             </div>
         </div>
