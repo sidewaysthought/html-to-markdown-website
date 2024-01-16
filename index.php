@@ -46,7 +46,7 @@
         <div class="container mt-4">
             <div class="row">
 
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <h2>About This Site</h2>
                     <p>The HTML to Markdown Converter is a user-friendly online tool that converts web page HTML
                         into markdown format. It simplifies the process of sharing web content on platforms like
@@ -65,7 +65,7 @@
                 </div>
 
                 <!-- Logo Column -->
-                <div class="col-md-4">
+                <div class="col-md-3 text-md-end text-center">
                     <img src="images/logo.png" alt="HTML to Markdown Converter Logo" class="img-fluid">
                     <p class="text-center">
                         <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
