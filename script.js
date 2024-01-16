@@ -32,41 +32,56 @@ function convertToMarkdown(e) {
         return;
     }
 
-    // Split input text by new lines or spaces to handle multiple URLs
-    var inputs = inputTxt.split(/[\n\s]+/);
-
-    // Process each input (URL or HTML)
-    inputs.forEach(input => {
-        if (isValidUrl(input)) {
-            fetchAndConvertUrl(input, selector);
-        } else {
-            var processedHtml = processHtmlWithSelector(input, selector);
-            if (processedHtml !== null) {
-                convertHtmlToMarkdown(processedHtml);
+    // Check if input is likely a URL or HTML
+    if (isLikelyUrl(inputTxt)) {
+        var inputs = inputTxt.split(/[\n\s]+/);
+        var promises = inputs.map(input => {
+            if (isValidUrl(input)) {
+                return fetchAndConvertUrl(input, selector, useSelector);
+            } else {
+                return Promise.resolve(''); // If not a valid URL, resolve with an empty string
             }
+        });
+
+        Promise.all(promises).then(results => {
+            // Join all the markdown contents
+            var combinedMarkdown = results.join('\n\n');
+            document.getElementById('markdownOutput').value = combinedMarkdown;
+        });
+    } else {
+        var processedHtml = processHtmlWithSelector(inputTxt, selector);
+        if (processedHtml !== null) {
+            convertHtmlToMarkdown(processedHtml);
         }
-    });
+    }
+}
+
+/**
+ * Check if the input text is likely a URL
+ * @param {string} text 
+ */
+function isLikelyUrl(text) {
+    return text.trim().startsWith('http://') || text.trim().startsWith('https://');
 }
 
 /**
  * Fetches and converts a URL to Markdown
  * @param {string} url 
  * @param {string} selector 
+ * @param {boolean} useSelector - Indicates whether to use the selector
  */
-function fetchAndConvertUrl(url, selector) {
-    fetch(url)
+function fetchAndConvertUrl(url, selector, useSelector) {
+    return fetch(url)
         .then(response => response.text())
         .then(data => {
-            var processedHtml = processHtmlWithSelector(data, selector);
-            if (processedHtml !== null) {
-                convertHtmlToMarkdown(processedHtml);
-            }
+            var processedHtml = useSelector && selector ? processHtmlWithSelector(data, selector) : data;
+            return processedHtml !== null ? convertHtmlToMarkdown(processedHtml) : '';
         })
         .catch(error => {
-            alert('Error fetching the URL: ' + error);
+            console.error('Error fetching the URL:', error);
+            return ''; // Return an empty string in case of error
         });
 }
-
 /**
  * Process the HTML with the selector
  * @param {*} html 
@@ -98,21 +113,24 @@ function processHtmlWithSelector(html, selector) {
  */
 function convertHtmlToMarkdown(html) {
     if (html !== '') {
-        html = html.replace(/<head>[\s\S]*<\/head>/gi, '');
-        html = html.replace(/<script[\s\S]*<\/script>/gi, '');
-        html = html.replace(/<style[\s\S]*<\/style>/gi, '');
+        html = html.replace(/<head>[\s\S]*?<\/head>/gi, '');
+        html = html.replace(/<script[\s\S]*?<\/script>/gi, '');
+        html = html.replace(/<style[\s\S]*?<\/style>/gi, '');
+        html = html.replace(/<noscript[\s\S]*?<\/noscript>/gi, '');
+
         var turndownService = new TurndownService({
             'headingStyle': 'atx',
             'codeBlockStyle': 'fenced',
             'strongDelimiter': '__'
         });
         var markdown = turndownService.turndown(html);
-        
+
         // Collapse multiple empty lines down to one
         markdown = markdown.replace(/\n{2,}/g, '\n');
-        document.getElementById('markdownOutput').value = markdown;
+        return markdown;
     } else {
         alert('No content found for conversion.');
+        return '';
     }
 }
 
